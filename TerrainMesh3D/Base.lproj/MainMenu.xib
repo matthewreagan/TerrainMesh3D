@@ -691,11 +691,11 @@
             </view>
         </window>
         <customView id="zfp-rx-qiY">
-            <rect key="frame" x="0.0" y="0.0" width="479" height="188"/>
+            <rect key="frame" x="0.0" y="0.0" width="479" height="171"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-56-uVf">
-                    <rect key="frame" x="16" y="56" width="129" height="32"/>
+                    <rect key="frame" x="16" y="39" width="129" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Paint Brush" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J49-Hk-1B6">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -706,7 +706,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7E-Vq-4uD">
-                    <rect key="frame" x="20" y="139" width="248" height="29"/>
+                    <rect key="frame" x="20" y="122" width="248" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Terrain Mesh 3D Demo" id="Iqn-B6-0x6">
                         <font key="font" metaFont="systemBold" size="19"/>
@@ -715,7 +715,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rka-a1-ZqA">
-                    <rect key="frame" x="20" y="92" width="386" height="49"/>
+                    <rect key="frame" x="20" y="75" width="386" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Click 'Paint Brush' and then click on the terrain to deform. To adjust camera click 'Adjust Camera'." id="QWu-Js-Op2">
                         <font key="font" metaFont="systemBold" size="14"/>
@@ -724,7 +724,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2F-MI-4ha">
-                    <rect key="frame" x="16" y="30" width="129" height="32"/>
+                    <rect key="frame" x="16" y="13" width="129" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Adjust Camera" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qSv-qw-yCC">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -735,7 +735,7 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="289.5" y="-878"/>
+            <point key="canvasLocation" x="289.5" y="-886.5"/>
         </customView>
     </objects>
 </document>

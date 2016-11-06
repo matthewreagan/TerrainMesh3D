@@ -74,12 +74,9 @@
     [SCNTransaction commit];
     
     [self.window.contentView addSubview:self.toolsView positioned:NSWindowAbove relativeTo:terrainView];
-    
-//    [NSTimer scheduledTimerWithTimeInterval:1.0/40.0
-//                                     target:self
-//                                   selector:@selector(demoTimer:)
-//                                   userInfo:nil
-//                                    repeats:YES];
+    NSRect toolsFrame = self.toolsView.frame;
+    toolsFrame.origin.y += 20.0;
+    self.toolsView.frame = toolsFrame;
 }
 
 - (void)demoTimer:(NSTimer *)timer

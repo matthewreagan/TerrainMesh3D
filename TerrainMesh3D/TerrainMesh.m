@@ -16,6 +16,7 @@
 @property (nonatomic) SCNVector3 *normals;
 @property (nonatomic) int *indices;
 @property (nonatomic) float *textureCoordinates;
+@property (nonatomic, copy) double (^vertexHeightComputationBlock)(int x, int y);
 
 @end
 
@@ -26,14 +27,25 @@
 + (instancetype)terrainMeshWithResolution:(int)verticesPerSide
                                sideLength:(double)sideLength
 {
+    return [self terrainMeshWithResolution:verticesPerSide
+                                sideLength:sideLength
+                              vertexHeight:nil];
+}
+
++ (instancetype)terrainMeshWithResolution:(int)verticesPerSide
+                               sideLength:(double)sideLength
+                             vertexHeight:(double (^)(int x, int y))vertexComputationBlock;
+{
     TerrainMesh *mesh = [[TerrainMesh alloc] initWithResolution:verticesPerSide
-                                                     sideLength:sideLength];
+                                                     sideLength:sideLength
+                                                   vertexHeight:vertexComputationBlock];
     
     return mesh;
 }
 
 - (instancetype)initWithResolution:(int)verticesPerSide
                         sideLength:(double)sideLength
+                      vertexHeight:(double (^)(int x, int y))vertexComputationBlock
 {
     self = [super init];
     
@@ -43,6 +55,7 @@
         
         _verticesPerSide = verticesPerSide;
         _sideLength = sideLength;
+        _vertexHeightComputationBlock = [vertexComputationBlock copy];
         
         [self allocateDataBuffers];
         [self populateDataBuffersWithStartingValues];
@@ -79,8 +92,8 @@
     
     for (int i = 0; i < totalVertices; i++)
     {
-        NSInteger ix = i % _verticesPerSide;
-        NSInteger iy = i / _verticesPerSide;
+        int ix = i % _verticesPerSide;
+        int iy = i / _verticesPerSide;
         
         double ixf = ((double)ix / (double)(_verticesPerSide - 1));
         double iyf = ((double)iy / (double)(_verticesPerSide - 1));
@@ -88,7 +101,15 @@
         double y = iyf * _sideLength;
         
         /*  Create vertices */
-        _positions[i] = SCNVector3Make(x, y, (((double)(random()%10)) / 10.0) * 0.0);
+
+        double vertexZDepth = 0.0;
+        
+        if (_vertexHeightComputationBlock)
+        {
+            vertexZDepth = _vertexHeightComputationBlock(ix, iy);
+        }
+        
+        _positions[i] = SCNVector3Make(x, y, vertexZDepth);
         
         /*  Create normals for each vertex */
         _normals[i] = SCNVector3Make(0, -1, 0);

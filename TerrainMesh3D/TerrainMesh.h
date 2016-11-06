@@ -16,6 +16,10 @@
 + (instancetype)terrainMeshWithResolution:(int)verticesPerSide
                                sideLength:(double)sideLength;
 
++ (instancetype)terrainMeshWithResolution:(int)verticesPerSide
+                               sideLength:(double)sideLength
+                             vertexHeight:(double (^)(int x, int y))vertexComputationBlock;
+
 /** Applies a paint brush type deformation of the terrain mesh,
     
     @param point

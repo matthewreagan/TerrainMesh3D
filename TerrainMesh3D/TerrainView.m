@@ -55,7 +55,7 @@
                                                    result.localCoordinates.y / meshSize);
             [mesh derformTerrainAt:relativeLocation
                        brushRadius:0.25
-                         intensity:.05];
+                         intensity:.025];
         }
     }
 }
