@@ -1,0 +1,329 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C901C2101DCFC07200FC1F5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C901C20F1DCFC07200FC1F5A /* AppDelegate.m */; };
+		C901C2131DCFC07200FC1F5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C901C2121DCFC07200FC1F5A /* main.m */; };
+		C901C2151DCFC07200FC1F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C901C2141DCFC07200FC1F5A /* Assets.xcassets */; };
+		C901C2181DCFC07300FC1F5A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C901C2161DCFC07300FC1F5A /* MainMenu.xib */; };
+		C901C2211DCFC07E00FC1F5A /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C901C2201DCFC07E00FC1F5A /* SceneKit.framework */; };
+		C901C2241DCFC09E00FC1F5A /* grass1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C901C2221DCFC09E00FC1F5A /* grass1.jpg */; };
+		C901C2251DCFC09E00FC1F5A /* sky2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C901C2231DCFC09E00FC1F5A /* sky2.jpg */; };
+		C901C22A1DCFC0BC00FC1F5A /* TerrainMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */; };
+		C901C22B1DCFC0BC00FC1F5A /* TerrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C901C2291DCFC0BC00FC1F5A /* TerrainScene.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C901C20B1DCFC07200FC1F5A /* TerrainMesh3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerrainMesh3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C901C20E1DCFC07200FC1F5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C901C20F1DCFC07200FC1F5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C901C2121DCFC07200FC1F5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C901C2141DCFC07200FC1F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C901C2171DCFC07300FC1F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C901C2191DCFC07300FC1F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C901C2201DCFC07E00FC1F5A /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		C901C2221DCFC09E00FC1F5A /* grass1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass1.jpg; sourceTree = "<group>"; };
+		C901C2231DCFC09E00FC1F5A /* sky2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sky2.jpg; sourceTree = "<group>"; };
+		C901C2261DCFC0BC00FC1F5A /* TerrainMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainMesh.h; sourceTree = "<group>"; };
+		C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainMesh.m; sourceTree = "<group>"; };
+		C901C2281DCFC0BC00FC1F5A /* TerrainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainScene.h; sourceTree = "<group>"; };
+		C901C2291DCFC0BC00FC1F5A /* TerrainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainScene.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C901C2081DCFC07200FC1F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C901C2211DCFC07E00FC1F5A /* SceneKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C901C2021DCFC07200FC1F5A = {
+			isa = PBXGroup;
+			children = (
+				C901C20D1DCFC07200FC1F5A /* TerrainMesh3D */,
+				C901C20C1DCFC07200FC1F5A /* Products */,
+				C901C21F1DCFC07D00FC1F5A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C901C20C1DCFC07200FC1F5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C901C20B1DCFC07200FC1F5A /* TerrainMesh3D.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C901C20D1DCFC07200FC1F5A /* TerrainMesh3D */ = {
+			isa = PBXGroup;
+			children = (
+				C901C2221DCFC09E00FC1F5A /* grass1.jpg */,
+				C901C2231DCFC09E00FC1F5A /* sky2.jpg */,
+				C901C2261DCFC0BC00FC1F5A /* TerrainMesh.h */,
+				C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */,
+				C901C2281DCFC0BC00FC1F5A /* TerrainScene.h */,
+				C901C2291DCFC0BC00FC1F5A /* TerrainScene.m */,
+				C901C20E1DCFC07200FC1F5A /* AppDelegate.h */,
+				C901C20F1DCFC07200FC1F5A /* AppDelegate.m */,
+				C901C2141DCFC07200FC1F5A /* Assets.xcassets */,
+				C901C2161DCFC07300FC1F5A /* MainMenu.xib */,
+				C901C2191DCFC07300FC1F5A /* Info.plist */,
+				C901C2111DCFC07200FC1F5A /* Supporting Files */,
+			);
+			path = TerrainMesh3D;
+			sourceTree = "<group>";
+		};
+		C901C2111DCFC07200FC1F5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C901C2121DCFC07200FC1F5A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C901C21F1DCFC07D00FC1F5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C901C2201DCFC07E00FC1F5A /* SceneKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C901C20A1DCFC07200FC1F5A /* TerrainMesh3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C901C21C1DCFC07300FC1F5A /* Build configuration list for PBXNativeTarget "TerrainMesh3D" */;
+			buildPhases = (
+				C901C2071DCFC07200FC1F5A /* Sources */,
+				C901C2081DCFC07200FC1F5A /* Frameworks */,
+				C901C2091DCFC07200FC1F5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TerrainMesh3D;
+			productName = TerrainMesh3D;
+			productReference = C901C20B1DCFC07200FC1F5A /* TerrainMesh3D.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C901C2031DCFC07200FC1F5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Matt Reagan";
+				TargetAttributes = {
+					C901C20A1DCFC07200FC1F5A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C901C2061DCFC07200FC1F5A /* Build configuration list for PBXProject "TerrainMesh3D" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C901C2021DCFC07200FC1F5A;
+			productRefGroup = C901C20C1DCFC07200FC1F5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C901C20A1DCFC07200FC1F5A /* TerrainMesh3D */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C901C2091DCFC07200FC1F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C901C2251DCFC09E00FC1F5A /* sky2.jpg in Resources */,
+				C901C2151DCFC07200FC1F5A /* Assets.xcassets in Resources */,
+				C901C2181DCFC07300FC1F5A /* MainMenu.xib in Resources */,
+				C901C2241DCFC09E00FC1F5A /* grass1.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C901C2071DCFC07200FC1F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C901C22B1DCFC0BC00FC1F5A /* TerrainScene.m in Sources */,
+				C901C2131DCFC07200FC1F5A /* main.m in Sources */,
+				C901C22A1DCFC0BC00FC1F5A /* TerrainMesh.m in Sources */,
+				C901C2101DCFC07200FC1F5A /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C901C2161DCFC07300FC1F5A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C901C2171DCFC07300FC1F5A /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C901C21A1DCFC07300FC1F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C901C21B1DCFC07300FC1F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C901C21D1DCFC07300FC1F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TerrainMesh3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mattreagan.TerrainMesh3D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C901C21E1DCFC07300FC1F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TerrainMesh3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mattreagan.TerrainMesh3D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C901C2061DCFC07200FC1F5A /* Build configuration list for PBXProject "TerrainMesh3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C901C21A1DCFC07300FC1F5A /* Debug */,
+				C901C21B1DCFC07300FC1F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C901C21C1DCFC07300FC1F5A /* Build configuration list for PBXNativeTarget "TerrainMesh3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C901C21D1DCFC07300FC1F5A /* Debug */,
+				C901C21E1DCFC07300FC1F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C901C2031DCFC07200FC1F5A /* Project object */;
+}
