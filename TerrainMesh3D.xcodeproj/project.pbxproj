@@ -67,14 +67,14 @@
 		C901C20D1DCFC07200FC1F5A /* TerrainMesh3D */ = {
 			isa = PBXGroup;
 			children = (
-				C901C2221DCFC09E00FC1F5A /* grass1.jpg */,
-				C901C2231DCFC09E00FC1F5A /* sky2.jpg */,
 				C901C2261DCFC0BC00FC1F5A /* TerrainMesh.h */,
 				C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */,
 				C901C22C1DCFD5CF00FC1F5A /* TerrainView.h */,
 				C901C22D1DCFD5CF00FC1F5A /* TerrainView.m */,
 				C901C20E1DCFC07200FC1F5A /* AppDelegate.h */,
 				C901C20F1DCFC07200FC1F5A /* AppDelegate.m */,
+				C901C2221DCFC09E00FC1F5A /* grass1.jpg */,
+				C901C2231DCFC09E00FC1F5A /* sky2.jpg */,
 				C901C2141DCFC07200FC1F5A /* Assets.xcassets */,
 				C901C2161DCFC07300FC1F5A /* MainMenu.xib */,
 				C901C2191DCFC07300FC1F5A /* Info.plist */,

@@ -1,6 +1,6 @@
 //
 //  TerrainMesh.m
-//  3DTerrainThing
+//  TerrainMesh3D
 //
 //  Created by Matt Reagan on 11/6/16.
 //  Copyright © 2016 Matt Reagan. All rights reserved.
