@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <SceneKit/SceneKit.h>
-#import "TerrainScene.h"
 #import "TerrainMesh.h"
 #import "TerrainView.h"
 
@@ -19,24 +18,29 @@
 
 //Outlets
 @property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSView *toolsView;
 
 //Demo properties
 @property (strong) TerrainMesh *mesh;
+@property (strong) TerrainView *terrainView;
 
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    TerrainView *view = [[TerrainView alloc] initWithFrame:self.window.contentView.bounds
+    TerrainView *terrainView = [[TerrainView alloc] initWithFrame:self.window.contentView.bounds
                                                    options:nil];
-    view.showsStatistics = YES;
-    [self.window.contentView addSubview:view];
+    terrainView.allowsCameraControl = NO;
+    terrainView.autoenablesDefaultLighting = NO;
+    terrainView.showsStatistics = YES;
+    self.terrainView = terrainView;
     
-    TerrainScene *scene = [TerrainScene scene];
-    view.scene = scene;
-    view.allowsCameraControl = YES;
-    view.autoenablesDefaultLighting = NO;
+    [self.window.contentView addSubview:terrainView];
+    
+    SCNScene *scene = [SCNScene scene];
+    scene.background.contents = [NSImage imageNamed:@"sky2"];
+    terrainView.scene = scene;
     
     SCNNode *ambientLightNode = [SCNNode node];
     ambientLightNode.light = [SCNLight light];
@@ -63,6 +67,14 @@
     [scene.rootNode addChildNode:mesh];
     self.mesh = mesh;
     
+    [SCNTransaction begin];
+    [SCNTransaction setAnimationDuration:2.2];
+    mesh.rotation = SCNVector4Make(1.0, 0.2, 0, -M_PI_4);
+    mesh.position = SCNVector3Make(0.0, 2.0, 0.0);
+    [SCNTransaction commit];
+    
+    [self.window.contentView addSubview:self.toolsView positioned:NSWindowAbove relativeTo:terrainView];
+    
 //    [NSTimer scheduledTimerWithTimeInterval:1.0/40.0
 //                                     target:self
 //                                   selector:@selector(demoTimer:)
@@ -78,5 +90,18 @@
 //                    brushRadius:0.1
 //                      intensity:.20];
 }
+
+#pragma mark - Demo Actions
+
+- (IBAction)paintBrushToolClicked:(id)sender
+{
+    self.terrainView.allowsCameraControl = NO;
+}
+
+- (IBAction)cameraToolClicked:(id)sender
+{
+    self.terrainView.allowsCameraControl = YES;
+}
+
 
 @end

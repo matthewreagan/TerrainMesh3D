@@ -160,7 +160,6 @@
                                                                 bytesPerIndex:sizeof(int)];
     
     SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[vertexSource, normalSource, textureSource] elements:@[element]];
-    geometry.subdivisionLevel = 2.0;
     geometry.materials = originalMaterials;
     
     self.geometry = geometry;

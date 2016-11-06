@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="toolsView" destination="zfp-rx-qiY" id="sEr-Ua-XHX"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -689,5 +690,52 @@
                 <autoresizingMask key="autoresizingMask"/>
             </view>
         </window>
+        <customView id="zfp-rx-qiY">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="188"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-56-uVf">
+                    <rect key="frame" x="16" y="56" width="129" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Paint Brush" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J49-Hk-1B6">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="paintBrushToolClicked:" target="Voe-Tx-rLC" id="wV9-84-2Mf"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7E-Vq-4uD">
+                    <rect key="frame" x="20" y="139" width="248" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Terrain Mesh 3D Demo" id="Iqn-B6-0x6">
+                        <font key="font" metaFont="systemBold" size="19"/>
+                        <color key="textColor" red="1" green="1" blue="0.46107313368055558" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rka-a1-ZqA">
+                    <rect key="frame" x="20" y="92" width="386" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Click 'Paint Brush' and then click on the terrain to deform. To adjust camera click 'Adjust Camera'." id="QWu-Js-Op2">
+                        <font key="font" metaFont="systemBold" size="14"/>
+                        <color key="textColor" red="1" green="1" blue="0.46107313370000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2F-MI-4ha">
+                    <rect key="frame" x="16" y="30" width="129" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Adjust Camera" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qSv-qw-yCC">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="cameraToolClicked:" target="Voe-Tx-rLC" id="h9h-EZ-O47"/>
+                    </connections>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="289.5" y="-878"/>
+        </customView>
     </objects>
 </document>

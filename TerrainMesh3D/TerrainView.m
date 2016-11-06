@@ -13,7 +13,7 @@
 
 - (void)mouseDown:(NSEvent *)event
 {
-    if (event.modifierFlags & NSEventModifierFlagShift)
+    if (!self.allowsCameraControl)
     {
         [self applyDeformToMesh:event];
     }
@@ -25,7 +25,7 @@
 
 - (void)mouseDragged:(NSEvent *)event
 {
-    if (event.modifierFlags & NSEventModifierFlagShift)
+    if (!self.allowsCameraControl)
     {
         [self applyDeformToMesh:event];
     }
@@ -55,7 +55,7 @@
                                                    result.localCoordinates.y / meshSize);
             [mesh derformTerrainAt:relativeLocation
                        brushRadius:0.25
-                         intensity:.2];
+                         intensity:.05];
         }
     }
 }

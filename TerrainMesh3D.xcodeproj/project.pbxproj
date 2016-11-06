@@ -15,7 +15,6 @@
 		C901C2241DCFC09E00FC1F5A /* grass1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C901C2221DCFC09E00FC1F5A /* grass1.jpg */; };
 		C901C2251DCFC09E00FC1F5A /* sky2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C901C2231DCFC09E00FC1F5A /* sky2.jpg */; };
 		C901C22A1DCFC0BC00FC1F5A /* TerrainMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */; };
-		C901C22B1DCFC0BC00FC1F5A /* TerrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C901C2291DCFC0BC00FC1F5A /* TerrainScene.m */; };
 		C901C22E1DCFD5CF00FC1F5A /* TerrainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C901C22D1DCFD5CF00FC1F5A /* TerrainView.m */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +31,6 @@
 		C901C2231DCFC09E00FC1F5A /* sky2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sky2.jpg; sourceTree = "<group>"; };
 		C901C2261DCFC0BC00FC1F5A /* TerrainMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainMesh.h; sourceTree = "<group>"; };
 		C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainMesh.m; sourceTree = "<group>"; };
-		C901C2281DCFC0BC00FC1F5A /* TerrainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainScene.h; sourceTree = "<group>"; };
-		C901C2291DCFC0BC00FC1F5A /* TerrainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainScene.m; sourceTree = "<group>"; };
 		C901C22C1DCFD5CF00FC1F5A /* TerrainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainView.h; sourceTree = "<group>"; };
 		C901C22D1DCFD5CF00FC1F5A /* TerrainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,8 +73,6 @@
 				C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */,
 				C901C22C1DCFD5CF00FC1F5A /* TerrainView.h */,
 				C901C22D1DCFD5CF00FC1F5A /* TerrainView.m */,
-				C901C2281DCFC0BC00FC1F5A /* TerrainScene.h */,
-				C901C2291DCFC0BC00FC1F5A /* TerrainScene.m */,
 				C901C20E1DCFC07200FC1F5A /* AppDelegate.h */,
 				C901C20F1DCFC07200FC1F5A /* AppDelegate.m */,
 				C901C2141DCFC07200FC1F5A /* Assets.xcassets */,
@@ -176,7 +171,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C901C22B1DCFC0BC00FC1F5A /* TerrainScene.m in Sources */,
 				C901C22E1DCFD5CF00FC1F5A /* TerrainView.m in Sources */,
 				C901C2131DCFC07200FC1F5A /* main.m in Sources */,
 				C901C22A1DCFC0BC00FC1F5A /* TerrainMesh.m in Sources */,
