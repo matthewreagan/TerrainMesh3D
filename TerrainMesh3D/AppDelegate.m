@@ -52,7 +52,6 @@
     mesh.geometry.materials = @[mat];
     
     [scene.rootNode addChildNode:mesh];
-    
 }
 
 

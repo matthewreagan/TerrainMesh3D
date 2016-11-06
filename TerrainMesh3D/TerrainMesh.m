@@ -50,6 +50,7 @@
         _sideLength = sideLength;
         
         [self allocateDataBuffers];
+        [self populateDataBuffersWithStartingValues];
         [self configureGeometry];
     }
     
@@ -72,10 +73,7 @@
     }
 }
 
-#pragma mark - Private Configuration
-
-
-- (void)configureGeometry
+- (void)populateDataBuffersWithStartingValues
 {
     if (_verticesPerSide <= 0)
     {
@@ -111,14 +109,16 @@
     
     for (int i = 0; i < totalTriangles; i += 2)
     {
+        /*  Define the triangles that make up the terrain mesh */
         int squareIndex = (i / 2);
         int squareX = squareIndex % squaresPerSide;
         int squareY = squareIndex / squaresPerSide;
         
-        int toprightIndex = ((squareY * (int)_verticesPerSide) + (int)_verticesPerSide) + squareX + 1;
+        int vPerSide = (int)_verticesPerSide;
+        int toprightIndex = ((squareY * vPerSide) + vPerSide) + squareX + 1;
         int topleftIndex = toprightIndex - 1;
-        int bottomleftIndex = toprightIndex - (int)_verticesPerSide - 1;
-        int bottomrightIndex = toprightIndex - (int)_verticesPerSide;
+        int bottomleftIndex = toprightIndex - vPerSide - 1;
+        int bottomrightIndex = toprightIndex - vPerSide;
         
         int i1 = i * 3;
         
@@ -130,9 +130,25 @@
         _indices[i1+4] = bottomleftIndex;
         _indices[i1+5] = bottomrightIndex;
     }
+}
+
+#pragma mark - Private Configuration
+
+- (void)configureGeometry
+{
+    if (_verticesPerSide <= 0)
+    {
+        return;
+    }
+    
+    NSArray *originalMaterials = self.geometry.materials;
+    
+    NSInteger totalVertices = _verticesPerSide * _verticesPerSide;
+    NSInteger squaresPerSide = (_verticesPerSide - 1);
+    NSInteger totalSquares = squaresPerSide * squaresPerSide;
+    NSInteger totalTriangles = totalSquares * 2;
 
     NSMutableData *textureData = [NSMutableData dataWithBytes:_textureCoordinates length:totalVertices * sizeof(float) * 2];
-    
     SCNGeometrySource *textureSource = [SCNGeometrySource geometrySourceWithData:textureData
                                                                         semantic:SCNGeometrySourceSemanticTexcoord
                                                                      vectorCount:totalVertices
@@ -142,21 +158,32 @@
                                                                       dataOffset:0
                                                                       dataStride:sizeof(float) * 2];
     
-    SCNGeometrySource *vertexSource =[SCNGeometrySource geometrySourceWithVertices:_positions count:totalVertices];
-    SCNGeometrySource *normalSource = [SCNGeometrySource geometrySourceWithNormals:_normals count:totalVertices];
+    SCNGeometrySource *vertexSource =
+    [SCNGeometrySource geometrySourceWithVertices:_positions count:totalVertices];
+    
+    SCNGeometrySource *normalSource =
+    [SCNGeometrySource geometrySourceWithNormals:_normals count:totalVertices];
     
     NSData *indexData = [NSData dataWithBytes:_indices length:sizeof(int) * totalTriangles * 3];
-    
     SCNGeometryElement *element = [SCNGeometryElement geometryElementWithData:indexData
                                                                 primitiveType:SCNGeometryPrimitiveTypeTriangles
                                                                primitiveCount:totalTriangles
                                                                 bytesPerIndex:sizeof(int)];
     
-    SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[vertexSource, normalSource, textureSource]
-                                                    elements:@[element]];
+    SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[vertexSource, normalSource, textureSource] elements:@[element]];
     geometry.subdivisionLevel = 2.0;
+    geometry.materials = originalMaterials;
     
     self.geometry = geometry;
+}
+
+#pragma mark - Deforming Terrain
+
+- (void)derformTerrainAt:(CGPoint)point
+             brushRadius:(double)brushRadius
+               intensity:(double)intensity
+{
+    [self configureGeometry];
 }
 
 @end

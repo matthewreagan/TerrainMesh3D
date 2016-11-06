@@ -13,4 +13,8 @@
 + (instancetype)terrainMeshWithResolution:(int)verticesPerSide
                                sideLength:(double)sideLength;
 
+- (void)derformTerrainAt:(CGPoint)point
+             brushRadius:(double)brushRadius
+               intensity:(double)intensity;
+
 @end
