@@ -44,7 +44,13 @@
     omniLightNode.position = SCNVector3Make(0, 5, 1);
     [scene.rootNode addChildNode:omniLightNode];
     
-    TerrainMesh *mesh = [TerrainMesh terrainMeshWithResolution:40];
+    TerrainMesh *mesh = [TerrainMesh terrainMeshWithResolution:40 sideLength:10.0];
+    
+    SCNMaterial *mat = [SCNMaterial material];
+    mat.diffuse.contents = [NSImage imageNamed:@"grass1"];
+    mat.doubleSided = YES;
+    mesh.geometry.materials = @[mat];
+    
     [scene.rootNode addChildNode:mesh];
     
 }

@@ -10,6 +10,7 @@
 
 @interface TerrainMesh : SCNNode
 
-+ (instancetype)terrainMeshWithResolution:(int)verticesPerSide;
++ (instancetype)terrainMeshWithResolution:(int)verticesPerSide
+                               sideLength:(double)sideLength;
 
 @end
