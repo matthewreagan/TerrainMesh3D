@@ -66,7 +66,30 @@
     [self configureDefaultLighting];
     
     /*  Create the terrain mesh */
-    TerrainMesh *mesh = [TerrainMesh terrainMeshWithResolution:40 sideLength:10.0];
+    const int kMeshResolution = 40;
+    
+#define DEMO_USE_VERTEX_COMPUTATION_BLOCK_EXAMPLE 0
+#if DEMO_USE_VERTEX_COMPUTATION_BLOCK_EXAMPLE
+    TerrainMesh *mesh = [TerrainMesh terrainMeshWithResolution:kMeshResolution
+                                                    sideLength:10.0
+                                                  vertexHeight:^double(int x, int y)
+                         {
+                             /* Give our initial terrain a slightly bumpy mapping
+                                that also rises toward the center: */
+                             
+                             int mapHalf = (kMeshResolution/2);
+                             double xDelta = (x - mapHalf);
+                             double yDelta = (y - mapHalf);
+                             double distance = sqrt((xDelta * xDelta) + (yDelta * yDelta));
+                             distance /= mapHalf;
+                             distance = 1.0 - distance;
+                             distance = sin(distance * M_PI_2);
+                             
+                             return (distance * 1.75) + (RANDOMPERCENTAGE * .15);
+                         }];
+#else
+    TerrainMesh *mesh = [TerrainMesh terrainMeshWithResolution:kMeshResolution sideLength:10.0];
+#endif
     
     /*  Give the terrain a nice terrain-y texture */
     SCNMaterial *mat = [SCNMaterial material];

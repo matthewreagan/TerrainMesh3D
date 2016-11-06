@@ -362,11 +362,11 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rka-a1-ZqA">
-                    <rect key="frame" x="20" y="75" width="386" height="54"/>
+                    <rect key="frame" x="20" y="75" width="394" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="QWu-Js-Op2">
                         <font key="font" metaFont="systemBold" size="14"/>
-                        <string key="title">Click 'Paint Brush' and then click on the terrain to deform. To adjust camera click 'Adjust Camera'. Tip: Option-click with paint brush to lower mountains.</string>
+                        <string key="title">Click 'Paint Brush' and then click on the terrain to deform. Click 'Adjust Camera' and then drag around to move. Tip: Option-click with Paint Brush lowers terrain.</string>
                         <color key="textColor" red="1" green="1" blue="0.46107313370000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
