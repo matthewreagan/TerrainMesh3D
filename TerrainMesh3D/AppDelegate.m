@@ -10,17 +10,26 @@
 #import <SceneKit/SceneKit.h>
 #import "TerrainScene.h"
 #import "TerrainMesh.h"
+#import "TerrainView.h"
+
+#define BIGRANDOMVAL 9999999
+#define RANDOMPERCENTAGE ((float)((arc4random()%BIGRANDOMVAL) / (float)BIGRANDOMVAL))
 
 @interface AppDelegate ()
 
+//Outlets
 @property (weak) IBOutlet NSWindow *window;
+
+//Demo properties
+@property (strong) TerrainMesh *mesh;
+
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    SCNView *view = [[SCNView alloc] initWithFrame:self.window.contentView.bounds
-                                           options:nil];
+    TerrainView *view = [[TerrainView alloc] initWithFrame:self.window.contentView.bounds
+                                                   options:nil];
     view.showsStatistics = YES;
     [self.window.contentView addSubview:view];
     
@@ -44,7 +53,7 @@
     omniLightNode.position = SCNVector3Make(0, 5, 1);
     [scene.rootNode addChildNode:omniLightNode];
     
-    TerrainMesh *mesh = [TerrainMesh terrainMeshWithResolution:40 sideLength:10.0];
+    TerrainMesh *mesh = [TerrainMesh terrainMeshWithResolution:60 sideLength:10.0];
     
     SCNMaterial *mat = [SCNMaterial material];
     mat.diffuse.contents = [NSImage imageNamed:@"grass1"];
@@ -52,12 +61,22 @@
     mesh.geometry.materials = @[mat];
     
     [scene.rootNode addChildNode:mesh];
+    self.mesh = mesh;
+    
+//    [NSTimer scheduledTimerWithTimeInterval:1.0/40.0
+//                                     target:self
+//                                   selector:@selector(demoTimer:)
+//                                   userInfo:nil
+//                                    repeats:YES];
 }
 
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+- (void)demoTimer:(NSTimer *)timer
+{
+//    double randomX = RANDOMPERCENTAGE;
+//    double randomY = RANDOMPERCENTAGE;
+//    [self.mesh derformTerrainAt:CGPointMake(randomX, randomY)
+//                    brushRadius:0.1
+//                      intensity:.20];
 }
-
 
 @end

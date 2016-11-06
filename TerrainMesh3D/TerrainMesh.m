@@ -10,11 +10,6 @@
 
 @interface TerrainMesh ()
 
-//Mesh resolution and size
-
-@property (nonatomic, readonly) int verticesPerSide;
-@property (nonatomic, readonly) double sideLength;
-
 //Internal data structures
 
 @property (nonatomic) SCNVector3 *positions;
@@ -75,15 +70,12 @@
 
 - (void)populateDataBuffersWithStartingValues
 {
-    if (_verticesPerSide <= 0)
-    {
-        return;
-    }
+    NSAssert(_verticesPerSide > 0, @"Invalid mesh resolution.");
     
-    NSInteger totalVertices = _verticesPerSide * _verticesPerSide;
-    NSInteger squaresPerSide = (_verticesPerSide - 1);
-    NSInteger totalSquares = squaresPerSide * squaresPerSide;
-    NSInteger totalTriangles = totalSquares * 2;
+    int totalVertices = _verticesPerSide * _verticesPerSide;
+    int squaresPerSide = (_verticesPerSide - 1);
+    int totalSquares = squaresPerSide * squaresPerSide;
+    int totalTriangles = totalSquares * 2;
     
     for (int i = 0; i < totalVertices; i++)
     {
@@ -96,7 +88,7 @@
         double y = iyf * _sideLength;
         
         /*  Create vertices */
-        _positions[i] = SCNVector3Make(x, y, ((double)(random()%10)) / 10.0);
+        _positions[i] = SCNVector3Make(x, y, (((double)(random()%10)) / 10.0) * 0.0);
         
         /*  Create normals for each vertex */
         _normals[i] = SCNVector3Make(0, -1, 0);
@@ -136,10 +128,7 @@
 
 - (void)configureGeometry
 {
-    if (_verticesPerSide <= 0)
-    {
-        return;
-    }
+    NSAssert(_verticesPerSide > 0, @"Invalid mesh resolution.");
     
     NSArray *originalMaterials = self.geometry.materials;
     
@@ -183,6 +172,32 @@
              brushRadius:(double)brushRadius
                intensity:(double)intensity
 {
+    double radiusInIndices = brushRadius * (double)_verticesPerSide;
+    double vx = ((double)_verticesPerSide * point.x);
+    double vy = ((double)_verticesPerSide * point.y);
+    
+    for (int y = 0; y < _verticesPerSide; y++)
+    {
+        for (int x = 0; x < _verticesPerSide; x++)
+        {
+            double xDelta = (vx - x);
+            double yDelta = (vy - y);
+            double dist = sqrt((xDelta * xDelta) + (yDelta * yDelta));
+            
+            if (dist < radiusInIndices)
+            {
+                int index = (y * _verticesPerSide) + x;
+                
+                double relativeIntensity = (1.0 - (dist / radiusInIndices));
+                
+                relativeIntensity = sin(relativeIntensity * M_PI_2);
+                relativeIntensity *= intensity;
+                
+                _positions[index].z += relativeIntensity;
+            }
+        }
+    }
+    
     [self configureGeometry];
 }
 
