@@ -129,6 +129,15 @@
 
 - (IBAction)resetClicked:(id)sender
 {
+    /*  Reset the mesh to be completely flat. */
+
+     [self.mesh updateGeometry:^double(int x, int y) {
+         return 0.0;
+     }];
+}
+
+- (IBAction)exampleClicked:(id)sender
+{
     int meshResolution = self.mesh.verticesPerSide;
     
     [self.mesh updateGeometry:^double(int x, int y) {

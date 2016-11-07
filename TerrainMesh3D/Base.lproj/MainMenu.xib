@@ -390,7 +390,18 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="resetClicked:" target="Voe-Tx-rLC" id="JJe-LN-HKw"/>
+                        <action selector="resetClicked:" target="Voe-Tx-rLC" id="L9v-zm-GXa"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-1C-Hmr">
+                    <rect key="frame" x="145" y="8" width="107" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Mountain" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hq7-3x-guB">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="exampleClicked:" target="Voe-Tx-rLC" id="gef-mW-YS8"/>
                     </connections>
                 </button>
             </subviews>
