@@ -382,6 +382,17 @@
                         <action selector="cameraToolClicked:" target="Voe-Tx-rLC" id="h9h-EZ-O47"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52y-fH-GEN">
+                    <rect key="frame" x="145" y="34" width="107" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sv7-IS-7Jj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="resetClicked:" target="Voe-Tx-rLC" id="JJe-LN-HKw"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="289.5" y="-886.5"/>
         </customView>

@@ -86,6 +86,12 @@
              brushRadius:(double)brushRadius
                intensity:(double)intensity;
 
+/** Recomputes the topographical (z-depth) geometry for the
+    terrain mesh entirely, using the provided blog which 
+    should return the height of the terrain for the given
+    vertex at X,Y. */
+- (void)updateGeometry:(double (^)(int x, int y))vertexComputationBlock;
+
 /** Vertices per side that the mesh was initialized with. */
 @property (nonatomic, readonly) int verticesPerSide;
 

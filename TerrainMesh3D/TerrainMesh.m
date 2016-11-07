@@ -143,7 +143,7 @@
         int squareY = squareIndex / squaresPerSide;
         
         int vPerSide = (int)_verticesPerSide;
-        int toprightIndex = ((squareY * vPerSide) + vPerSide) + squareX + 1;
+        int toprightIndex = ((squareY + 1) * vPerSide) + squareX + 1;
         int topleftIndex = toprightIndex - 1;
         int bottomleftIndex = toprightIndex - vPerSide - 1;
         int bottomrightIndex = toprightIndex - vPerSide;
@@ -199,6 +199,18 @@
     geometry.materials = originalMaterials;
     
     self.geometry = geometry;
+}
+
+#pragma mark - Updating Terrain
+
+- (void)updateGeometry:(double (^)(int x, int y))vertexComputationBlock
+{
+    if (vertexComputationBlock)
+    {
+        self.vertexHeightComputationBlock = vertexComputationBlock;
+        [self populateDataBuffersWithStartingValues];
+        [self configureGeometry];
+    }
 }
 
 #pragma mark - Deforming Terrain
