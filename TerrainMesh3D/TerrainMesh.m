@@ -127,7 +127,7 @@
         _positions[i] = SCNVector3Make(x, y, vertexZDepth);
         
         /*  Create normals for each vertex */
-        _normals[i] = SCNVector3Make(0, -1, 0);
+        _normals[i] = SCNVector3Make(0, 0, 1);
         
         /*  Create texture coords (an X,Y pair for each vertex) */
         int ti = i * 2;

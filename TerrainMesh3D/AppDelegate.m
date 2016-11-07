@@ -102,17 +102,17 @@
     SCNNode *ambientLightNode = [SCNNode node];
     ambientLightNode.light = [SCNLight light];
     ambientLightNode.light.type = SCNLightTypeAmbient;
-    ambientLightNode.light.color = [NSColor colorWithWhite:1 alpha:1.0];
+    ambientLightNode.light.color = [NSColor colorWithWhite:0.70 alpha:1.0];
     ambientLightNode.light.intensity = 800;
     [scene.rootNode addChildNode:ambientLightNode];
     
-    SCNNode *omniLightNode = [SCNNode node];
-    omniLightNode.light = [SCNLight light];
-    omniLightNode.light.type = SCNLightTypeOmni;
-    omniLightNode.light.color = [NSColor yellowColor];
-    omniLightNode.light.intensity = 500;
-    omniLightNode.position = SCNVector3Make(0, 5, 1);
-    [scene.rootNode addChildNode:omniLightNode];
+    SCNNode *spotLightNode = [SCNNode node];
+    spotLightNode.light = [SCNLight light];
+    spotLightNode.light.type = SCNLightTypeSpot;
+    spotLightNode.light.color = [NSColor colorWithRed:1.0 green:1.0 blue:0.75 alpha:1.0];
+    spotLightNode.light.intensity = 500;
+    spotLightNode.position = SCNVector3Make(5.0, 5.0, 10);
+    [scene.rootNode addChildNode:spotLightNode];
 }
 
 #pragma mark - Demo Actions
