@@ -74,7 +74,14 @@
     0.5 is half the size of the mesh. Therefore, a brush at
     point 0.5, 0.5 (center of terrain) with a radius of 0.5
     would be a circle that was the same size as the entire
-    terrain. */
+    terrain.
+    
+    @param intensity
+    The a value between 0.0 and the full intensity will be
+    applied to the area indicated by `point` and `brushRadius`.
+    The actual value of `intensity` is arbitrary and based on
+    the unit scale of your objects and scene.
+ */
 - (void)derformTerrainAt:(CGPoint)point
              brushRadius:(double)brushRadius
                intensity:(double)intensity;
