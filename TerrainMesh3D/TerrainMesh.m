@@ -208,6 +208,7 @@
     if (vertexComputationBlock)
     {
         self.vertexHeightComputationBlock = vertexComputationBlock;
+        //TODO: This approach is much less efficient than it could be
         [self populateDataBuffersWithStartingValues];
         [self configureGeometry];
     }
