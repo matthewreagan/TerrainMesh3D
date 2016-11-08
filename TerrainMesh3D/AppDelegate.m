@@ -102,15 +102,15 @@
     SCNNode *ambientLightNode = [SCNNode node];
     ambientLightNode.light = [SCNLight light];
     ambientLightNode.light.type = SCNLightTypeAmbient;
-    ambientLightNode.light.color = [NSColor colorWithWhite:0.70 alpha:1.0];
-    ambientLightNode.light.intensity = 800;
+    ambientLightNode.light.color = [NSColor colorWithRed:1.0 green:1.0 blue:0.7 alpha:1.0];
+    ambientLightNode.light.intensity = 300;
     [scene.rootNode addChildNode:ambientLightNode];
     
     SCNNode *spotLightNode = [SCNNode node];
     spotLightNode.light = [SCNLight light];
     spotLightNode.light.type = SCNLightTypeSpot;
-    spotLightNode.light.color = [NSColor colorWithRed:1.0 green:1.0 blue:0.75 alpha:1.0];
-    spotLightNode.light.intensity = 500;
+    spotLightNode.light.color = [NSColor colorWithWhite:1.0 alpha:0.0];
+    spotLightNode.light.intensity = 1000;
     spotLightNode.position = SCNVector3Make(5.0, 5.0, 10);
     [scene.rootNode addChildNode:spotLightNode];
 }
@@ -153,7 +153,7 @@
         distance = 1.0 - distance;
         distance = sin((distance * distance) * M_PI_2);
         
-        return (distance * 1.75) + (RANDOMPERCENTAGE * .15);
+        return (distance * 2.75) + (RANDOMPERCENTAGE * .10);
     }];
 }
 
