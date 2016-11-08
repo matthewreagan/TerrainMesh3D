@@ -27,9 +27,9 @@
 
 //Internal data structures
 
-@property (nonatomic) SCNVector3 *positions;
+@property (nonatomic) SCNVector3 *meshVertices;
 @property (nonatomic) SCNVector3 *normals;
-@property (nonatomic) int *indices;
+@property (nonatomic) int *triangleIndices;
 @property (nonatomic) float *textureCoordinates;
 @property (nonatomic, copy) double (^vertexHeightComputationBlock)(int x, int y);
 
@@ -89,9 +89,9 @@
         NSInteger totalSquares = squaresPerSide * squaresPerSide;
         NSInteger totalTriangles = totalSquares * 2;
         
-        _positions = malloc(sizeof(SCNVector3) * totalVertices);
+        _meshVertices = malloc(sizeof(SCNVector3) * totalVertices);
         _normals = malloc(sizeof(SCNVector3) * totalVertices);
-        _indices = malloc(sizeof(int) * totalTriangles * 3);
+        _triangleIndices = malloc(sizeof(int) * totalTriangles * 3);
         _textureCoordinates = malloc(sizeof(float) * totalVertices * 2);
     }
 }
@@ -124,7 +124,7 @@
             vertexZDepth = _vertexHeightComputationBlock(ix, iy);
         }
         
-        _positions[i] = SCNVector3Make(x, y, vertexZDepth);
+        _meshVertices[i] = SCNVector3Make(x, y, vertexZDepth);
         
         /*  Create normals for each vertex */
         _normals[i] = SCNVector3Make(0, 0, 1);
@@ -150,13 +150,13 @@
         
         int i1 = i * 3;
         
-        _indices[i1] = toprightIndex;
-        _indices[i1+1] = topleftIndex;
-        _indices[i1+2] = bottomleftIndex;
+        _triangleIndices[i1] = toprightIndex;
+        _triangleIndices[i1+1] = topleftIndex;
+        _triangleIndices[i1+2] = bottomleftIndex;
         
-        _indices[i1+3] = toprightIndex;
-        _indices[i1+4] = bottomleftIndex;
-        _indices[i1+5] = bottomrightIndex;
+        _triangleIndices[i1+3] = toprightIndex;
+        _triangleIndices[i1+4] = bottomleftIndex;
+        _triangleIndices[i1+5] = bottomrightIndex;
     }
 }
 
@@ -184,12 +184,12 @@
                                                                       dataStride:sizeof(float) * 2];
     
     SCNGeometrySource *vertexSource =
-    [SCNGeometrySource geometrySourceWithVertices:_positions count:totalVertices];
+    [SCNGeometrySource geometrySourceWithVertices:_meshVertices count:totalVertices];
     
     SCNGeometrySource *normalSource =
     [SCNGeometrySource geometrySourceWithNormals:_normals count:totalVertices];
     
-    NSData *indexData = [NSData dataWithBytes:_indices length:sizeof(int) * totalTriangles * 3];
+    NSData *indexData = [NSData dataWithBytes:_triangleIndices length:sizeof(int) * totalTriangles * 3];
     SCNGeometryElement *element = [SCNGeometryElement geometryElementWithData:indexData
                                                                 primitiveType:SCNGeometryPrimitiveTypeTriangles
                                                                primitiveCount:totalTriangles
@@ -241,7 +241,7 @@
                 relativeIntensity = sin(relativeIntensity * M_PI_2);
                 relativeIntensity *= intensity;
                 
-                _positions[index].z += relativeIntensity;
+                _meshVertices[index].z += relativeIntensity;
             }
         }
     }
