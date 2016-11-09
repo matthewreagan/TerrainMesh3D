@@ -8,7 +8,7 @@ It was created as a simple / fun exploratory demonstration of deformable SceneKi
 
 ## Related Article
 
-For a more in-depth explanation of this class and how to use custom geometry with SceneKit, see the blog post here: [http://sound-of-silence.com](http://sound-of-silence.com/?article=20161108)
+For a more in-depth explanation of this class and how to use custom geometry with SceneKit, see the blog post here: [http://sound-of-silence.com/?article=20161108](http://sound-of-silence.com/?article=20161108)
 
 ## Performance
 
