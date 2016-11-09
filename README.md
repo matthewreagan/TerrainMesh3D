@@ -2,13 +2,13 @@
 
 # TerrainMesh
 
-**TerrainMesh** is a [SCNNode](https://developer.apple.com/reference/scenekit/scnnode) subclass which aims to simplify the creation of custom **SceneKit** geometry for triangle meshes.
+**TerrainMesh** is a [SCNNode](https://developer.apple.com/reference/scenekit/scnnode) subclass which aims to simplify the creation of custom **SceneKit** geometry for triangle meshes. It also provides built-in support/example APIs for deformation and manipulation of the mesh.
 
-It was created as a simple / fun exploratory demonstration of deformable SceneKit terrain, which can be manipulated on a per-vertex basis.
+It was created as a simple / fun exploratory demonstration of deformable SceneKit terrain.
 
 ## Related Article
 
-For a more in-depth explanation of this class and how to use custom geometry with SceneKit, see the blog post here: [http://sound-of-silence.com](http://sound-of-silence.com)
+For a more in-depth explanation of this class and how to use custom geometry with SceneKit, see the blog post here: [http://sound-of-silence.com](http://sound-of-silence.com/?article=20161108)
 
 ## Performance
 
