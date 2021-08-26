@@ -20,14 +20,20 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+//
+// web page: <http://mattreagandev.com/?article=20161108>
+// github sources: <https://github.com/matthewreagan/TerrainMesh3D>
+//
+// Modifications by <geowar1@mac.com> on Aug 26, 2021
+// Added orbiting omni light
+//
 
 #import "AppDelegate.h"
 #import <SceneKit/SceneKit.h>
 #import "TerrainMesh.h"
 #import "TerrainView.h"
 
-#define BIGRANDOMVAL 9999999
-#define RANDOMPERCENTAGE ((float)((arc4random()%BIGRANDOMVAL) / (float)BIGRANDOMVAL))
+#define RANDOMPERCENTAGE ((CGFloat) (arc4random() / (CGFloat) RAND_MAX))
 
 @interface AppDelegate ()
 
@@ -78,12 +84,15 @@
     /*  Add the terrain to the scene */
     [scene.rootNode addChildNode:mesh];
     self.mesh = mesh;
-    
+
+    [self exampleClicked:NULL]; // add a mountain
+
     /*  Give the starting terrain a nice little spin intro for the Demo */
     [SCNTransaction begin];
     [SCNTransaction setAnimationDuration:2.2];
-    mesh.rotation = SCNVector4Make(1.0, 0.2, 0, -M_PI_4);
-    mesh.position = SCNVector3Make(0.0, 2.0, 0.0);
+//    mesh.rotation = SCNVector4Make(1.0, 0.2, 0, -M_PI_4);
+//    mesh.position = SCNVector3Make(0.0, 2.0, 0.0);
+    scene.rootNode.rotation = SCNVector4Make(1.0, 0.0, 0, -M_PI_4);
     [SCNTransaction commit];
     
     /*  Add the tools view, make sure it's above the SCNView debug controls */
@@ -108,11 +117,23 @@
     
     SCNNode *spotLightNode = [SCNNode node];
     spotLightNode.light = [SCNLight light];
-    spotLightNode.light.type = SCNLightTypeSpot;
+    spotLightNode.light.type = SCNLightTypeOmni;
     spotLightNode.light.color = [NSColor colorWithWhite:1.0 alpha:0.0];
     spotLightNode.light.intensity = 1000;
-    spotLightNode.position = SCNVector3Make(5.0, 5.0, 10);
+    spotLightNode.position = SCNVector3Make(0, 5, 5);
     [scene.rootNode addChildNode:spotLightNode];
+
+    SCNNode *planetNode = [SCNNode node];
+    planetNode.geometry = [SCNSphere sphereWithRadius:.1];
+    [spotLightNode addChildNode:planetNode];
+
+    NSTimeInterval duration = 6;
+    [spotLightNode runAction:[SCNAction repeatActionForever:[SCNAction customActionWithDuration:duration
+                                                                                    actionBlock:^(SCNNode * _Nonnull node, CGFloat elapsedTime) {
+        double angleRAD = elapsedTime * M_PI * 2 / duration;
+        CGFloat orbit_radius = 3;
+        node.position = SCNVector3Make(5 + (orbit_radius * sin(angleRAD)), 5 + (orbit_radius * cos(angleRAD)), 5);
+    }]]];
 }
 
 #pragma mark - Demo Actions

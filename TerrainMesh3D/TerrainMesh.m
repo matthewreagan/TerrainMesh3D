@@ -20,8 +20,17 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+//
+// web page: <http://mattreagandev.com/?article=20161108>
+// github sources: <https://github.com/matthewreagan/TerrainMesh3D>
+//
+// Modifications by <geowar1@mac.com> on Aug 26, 2021
+// compute normals based on cross product of triangle vertices
+//
 
 #import "TerrainMesh.h"
+
+#import "SCN_Math.h"    // for SCNVector3Cross & SCNVector3Sub
 
 @interface TerrainMesh ()
 
@@ -143,11 +152,11 @@
         int squareY = squareIndex / squaresPerSide;
         
         int vPerSide = (int)_verticesPerSide;
-        int toprightIndex = ((squareY + 1) * vPerSide) + squareX + 1;
-        int topleftIndex = toprightIndex - 1;
-        int bottomleftIndex = toprightIndex - vPerSide - 1;
-        int bottomrightIndex = toprightIndex - vPerSide;
-        
+        int bottomleftIndex = (squareY * vPerSide) + squareX;
+        int bottomrightIndex = bottomleftIndex + 1;
+        int topleftIndex = bottomleftIndex + vPerSide;
+        int toprightIndex = topleftIndex + 1;
+
         int i1 = i * 3;
         
         _triangleIndices[i1] = toprightIndex;
@@ -157,6 +166,12 @@
         _triangleIndices[i1+3] = toprightIndex;
         _triangleIndices[i1+4] = bottomleftIndex;
         _triangleIndices[i1+5] = bottomrightIndex;
+
+        SCNVector3 topleftPoint = _meshVertices[topleftIndex];
+        SCNVector3 toprightPoint = _meshVertices[toprightIndex];
+        SCNVector3 bottomleftPoint = _meshVertices[bottomleftIndex];
+
+        _normals[bottomleftIndex] = SCNVector3Cross(SCNVector3Sub(bottomleftPoint, toprightPoint), SCNVector3Sub(bottomleftPoint, topleftPoint));
     }
 }
 
