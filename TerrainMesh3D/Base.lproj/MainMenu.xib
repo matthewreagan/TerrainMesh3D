@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -326,24 +326,25 @@
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ"/>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="141" y="154"/>
         </menu>
         <window title="Terrain Mesh 3D" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="1024" height="768"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
+            <point key="canvasLocation" x="189" y="-1442"/>
         </window>
         <customView id="zfp-rx-qiY">
             <rect key="frame" x="0.0" y="0.0" width="479" height="171"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-56-uVf">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-56-uVf">
                     <rect key="frame" x="16" y="34" width="129" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Paint Brush" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J49-Hk-1B6">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -352,18 +353,23 @@
                         <action selector="paintBrushToolClicked:" target="Voe-Tx-rLC" id="wV9-84-2Mf"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7E-Vq-4uD">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E7E-Vq-4uD">
                     <rect key="frame" x="20" y="122" width="248" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="244" id="alW-CV-C0e"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Terrain Mesh 3D Demo" id="Iqn-B6-0x6">
                         <font key="font" metaFont="systemBold" size="19"/>
                         <color key="textColor" red="1" green="1" blue="0.46107313368055558" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rka-a1-ZqA">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rka-a1-ZqA">
                     <rect key="frame" x="20" y="75" width="394" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="390" id="XqS-P5-WJD"/>
+                        <constraint firstAttribute="height" constant="54" id="q5K-SY-T9g"/>
+                    </constraints>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="QWu-Js-Op2">
                         <font key="font" metaFont="systemBold" size="14"/>
                         <string key="title">Click 'Paint Brush' and then click on the terrain to deform. Click 'Adjust Camera' and then drag around to move. Tip: Option-click with Paint Brush lowers terrain.</string>
@@ -371,9 +377,8 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2F-MI-4ha">
-                    <rect key="frame" x="16" y="8" width="129" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b2F-MI-4ha">
+                    <rect key="frame" x="21" y="8" width="124" height="32"/>
                     <buttonCell key="cell" type="push" title="Adjust Camera" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qSv-qw-yCC">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -382,9 +387,8 @@
                         <action selector="cameraToolClicked:" target="Voe-Tx-rLC" id="h9h-EZ-O47"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52y-fH-GEN">
-                    <rect key="frame" x="145" y="34" width="107" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="52y-fH-GEN">
+                    <rect key="frame" x="145" y="34" width="92" height="32"/>
                     <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sv7-IS-7Jj">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -393,9 +397,11 @@
                         <action selector="resetClicked:" target="Voe-Tx-rLC" id="L9v-zm-GXa"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-1C-Hmr">
-                    <rect key="frame" x="145" y="8" width="107" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-1C-Hmr">
+                    <rect key="frame" x="145" y="8" width="92" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Egb-LF-j4t"/>
+                    </constraints>
                     <buttonCell key="cell" type="push" title="Mountain" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hq7-3x-guB">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -405,6 +411,26 @@
                     </connections>
                 </button>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="E7E-Vq-4uD" secondAttribute="trailing" constant="20" symbolic="YES" id="8WU-UK-7zA"/>
+                <constraint firstItem="Rka-a1-ZqA" firstAttribute="leading" secondItem="zfp-rx-qiY" secondAttribute="leading" constant="22" id="HmD-jx-QgO"/>
+                <constraint firstItem="1HK-1C-Hmr" firstAttribute="leading" secondItem="52y-fH-GEN" secondAttribute="leading" id="JfC-3G-PNP"/>
+                <constraint firstItem="E7E-Vq-4uD" firstAttribute="top" secondItem="zfp-rx-qiY" secondAttribute="top" constant="20" symbolic="YES" id="QF7-xg-wU2"/>
+                <constraint firstItem="1HK-1C-Hmr" firstAttribute="baseline" secondItem="b2F-MI-4ha" secondAttribute="baseline" id="Qaj-LF-q6f"/>
+                <constraint firstItem="1HK-1C-Hmr" firstAttribute="leading" secondItem="zfp-rx-qiY" secondAttribute="leading" constant="152" id="RdO-Tb-sbs"/>
+                <constraint firstItem="Rka-a1-ZqA" firstAttribute="top" secondItem="zfp-rx-qiY" secondAttribute="top" constant="42" id="bOI-o6-smp"/>
+                <constraint firstItem="1HK-1C-Hmr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b2F-MI-4ha" secondAttribute="trailing" constant="12" symbolic="YES" id="beQ-C3-SGR"/>
+                <constraint firstAttribute="bottom" secondItem="1HK-1C-Hmr" secondAttribute="bottom" constant="15" id="dMB-lu-UpN"/>
+                <constraint firstItem="b2F-MI-4ha" firstAttribute="leading" secondItem="zfp-rx-qiY" secondAttribute="leading" constant="28" id="fA0-Hb-Ne0"/>
+                <constraint firstItem="Duo-56-uVf" firstAttribute="top" secondItem="E7E-Vq-4uD" secondAttribute="bottom" constant="61" id="hNv-N5-Mj2"/>
+                <constraint firstItem="Duo-56-uVf" firstAttribute="trailing" secondItem="b2F-MI-4ha" secondAttribute="trailing" id="oKK-vb-sR9"/>
+                <constraint firstItem="Duo-56-uVf" firstAttribute="leading" secondItem="zfp-rx-qiY" secondAttribute="leading" constant="23" id="t5J-Tt-1VG"/>
+                <constraint firstItem="Duo-56-uVf" firstAttribute="top" secondItem="Rka-a1-ZqA" secondAttribute="bottom" constant="14" id="tCt-22-zW1"/>
+                <constraint firstItem="Rka-a1-ZqA" firstAttribute="leading" secondItem="E7E-Vq-4uD" secondAttribute="leading" id="tJZ-Yq-rXF"/>
+                <constraint firstItem="1HK-1C-Hmr" firstAttribute="top" secondItem="52y-fH-GEN" secondAttribute="bottom" constant="6" id="uuK-o4-qwR"/>
+                <constraint firstItem="1HK-1C-Hmr" firstAttribute="trailing" secondItem="52y-fH-GEN" secondAttribute="trailing" id="vb2-SB-odW"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rka-a1-ZqA" secondAttribute="trailing" constant="20" symbolic="YES" id="wRd-zB-lfK"/>
+            </constraints>
             <point key="canvasLocation" x="289.5" y="-886.5"/>
         </customView>
     </objects>

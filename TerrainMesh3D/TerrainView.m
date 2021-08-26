@@ -31,14 +31,11 @@
     /*  For the demo, if camera control is on we allow the normal
         SCNView machinery to handle the event. If not, we apply
         the paint brush deformation below. */
-    
-    if (!self.allowsCameraControl)
-    {
-        [self applyDeformToMesh:event];
-    }
-    else
-    {
+
+    if (self.allowsCameraControl) {
         [super mouseDown:event];
+    } else {
+        [self applyDeformToMesh:event];
     }
 }
 
@@ -47,40 +44,30 @@
     /*  For the demo, if camera control is on we allow the normal
         SCNView machinery to handle the event. If not, we apply
         the paint brush deformation below. */
-    
-    if (!self.allowsCameraControl)
-    {
-        [self applyDeformToMesh:event];
-    }
-    else
-    {
+
+    if (self.allowsCameraControl) {
         [super mouseDragged:event];
+    } else {
+        [self applyDeformToMesh:event];
     }
 }
 
 #pragma mark - Terrain Paint Brush
 
-- (void)applyDeformToMesh:(NSEvent *)event
-{
-    NSPoint point = event.locationInWindow;
-    point = [self convertPoint:point fromView:nil];
-    
-    NSArray *hitResults = [self hitTest:point options:nil];
-    
-    for (SCNHitTestResult *result in hitResults)
-    {
-        id node = result.node;
-        
-        if ([node isKindOfClass:[TerrainMesh class]])
-        {
-            TerrainMesh *mesh = node;
+- (void)applyDeformToMesh:(NSEvent *)event {
+    NSPoint point = [self convertPoint:event.locationInWindow fromView:nil];
+    double intensity = (event.modifierFlags & NSEventModifierFlagOption) ? -0.025 : 0.025;
+
+    for (SCNHitTestResult *result in [self hitTest:point options:nil]) {
+        if ([result.node isKindOfClass:[TerrainMesh class]]) {
+            TerrainMesh *mesh = (TerrainMesh *) result.node;
             double meshSize = mesh.sideLength;
-            
+
             CGPoint relativeLocation = CGPointMake(result.localCoordinates.x / meshSize,
                                                    result.localCoordinates.y / meshSize);
             [mesh derformTerrainAt:relativeLocation
                        brushRadius:0.25
-                         intensity:.025 * ((event.modifierFlags & NSEventModifierFlagOption) ? -1.0 : 1.0)];
+                         intensity:intensity];
         }
     }
 }
