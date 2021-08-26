@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		972B7A1926D7ECAE0048CFE2 /* SCN_Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCN_Math.h; sourceTree = "<group>"; };
 		C901C20B1DCFC07200FC1F5A /* TerrainMesh3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerrainMesh3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C901C20E1DCFC07200FC1F5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C901C20F1DCFC07200FC1F5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		C901C20D1DCFC07200FC1F5A /* TerrainMesh3D */ = {
 			isa = PBXGroup;
 			children = (
+				972B7A1926D7ECAE0048CFE2 /* SCN_Math.h */,
 				C901C2261DCFC0BC00FC1F5A /* TerrainMesh.h */,
 				C901C2271DCFC0BC00FC1F5A /* TerrainMesh.m */,
 				C901C22C1DCFD5CF00FC1F5A /* TerrainView.h */,
@@ -139,6 +141,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
